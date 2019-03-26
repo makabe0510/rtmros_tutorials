@@ -426,12 +426,24 @@ compile_rbrain_model_for_closed_robots(TQLEG0 TQLEG0 TQLEG0
   --conf-file-option "seq_optional_data_dim: 4"
   )
 
+# TRIAD
+compile_rbrain_model_for_closed_robots(TRIAD TRIAD TRIAD
+  --conf-dt-option "0.002"
+  --simulation-timestep-option "0.002"
+  --robothardware-conf-file-option "pdgains.file_name: ${PROJECT_SOURCE_DIR}/models/PDgains.sav"
+  --conf-file-option "pdgains.file_name: ${PROJECT_SOURCE_DIR}/models/TRIAD.PDgains.sav"
+  --conf-file-option "pdgains_sim_file_name: ${PROJECT_SOURCE_DIR}/models/TRIAD.PDgains_sim.dat"
+  --conf-file-option "abc_leg_offset: 0.0, 0.1, 0.0"
+  --conf-file-option "# SequencePlayer optional data (contactStates x 2 + controlSwingTime x 2 (2 is rfsensor, lfsensor)"
+  --conf-file-option "seq_optional_data_dim: 4"
+  )  
+#gen_minmax_table_for_closed_robots(TRIAD TRIAD TRIAD)
+
 if(EXISTS ${PROJECT_SOURCE_DIR}/models/TESTMDOFARM.wrl)
   compile_openhrp_model(
     ${PROJECT_SOURCE_DIR}/models/TESTMDOFARM.wrl
     TESTMDOFARM)
 endif()
-
 
 ################################
 ## Generate default simulation launch files and euslisp interface files
@@ -469,6 +481,7 @@ generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(URATALEG
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(YSTLEG YSTLEG "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(CHIDORI CHIDORI "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(TQLEG0 TQLEG0 "--use-robot-hrpsys-config")
+generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(TRIAD TRIAD "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files(
   "$(find hrpsys_ros_bridge_tutorials)/models/TESTMDOFARM.wrl"
   hrpsys_ros_bridge_tutorials
