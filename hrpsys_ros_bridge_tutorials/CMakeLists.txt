@@ -551,59 +551,59 @@ macro (attach_sensor_and_endeffector_to_hrp2jsk_urdf
   list(APPEND compile_urdf_robots ${_out_urdf_file})
 endmacro()
 
-# for HRP2JSK + multisense
-pkg_check_modules(multisense_description multisense_description QUIET)
-if(${hrp2_models_FOUND} AND multisense_description_FOUND)
-  # generate HRP2JSK_WH.urdf from HRP2JSK.urdf.xacro
-  set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
-  add_custom_command(OUTPUT ${_model_dir}/HRP2JSK_WH.urdf
-    COMMAND ${xacro_exe} ${_model_dir}/HRP2JSK.urdf.xacro -o ${_model_dir}/HRP2JSK_WH.urdf
-    DEPENDS ${_model_dir}/HRP2JSK.urdf.xacro ${_model_dir}/HRP2JSK.urdf)
-  # generate HRP2JSK_WH_SENSORS.urdf from HRP2JSK_WH.urdf and yaml
-  attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSK HRP2JSK_WH.urdf
-    HRP2JSK_WH_SENSORS.urdf hrp2jsk.yaml)
-endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
+# # for HRP2JSK + multisense
+# pkg_check_modules(multisense_description multisense_description QUIET)
+# if(${hrp2_models_FOUND} AND multisense_description_FOUND)
+#   # generate HRP2JSK_WH.urdf from HRP2JSK.urdf.xacro
+#   set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
+#   add_custom_command(OUTPUT ${_model_dir}/HRP2JSK_WH.urdf
+#     COMMAND ${xacro_exe} ${_model_dir}/HRP2JSK.urdf.xacro -o ${_model_dir}/HRP2JSK_WH.urdf
+#     DEPENDS ${_model_dir}/HRP2JSK.urdf.xacro ${_model_dir}/HRP2JSK.urdf)
+#   # generate HRP2JSK_WH_SENSORS.urdf from HRP2JSK_WH.urdf and yaml
+#   attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSK HRP2JSK_WH.urdf
+#     HRP2JSK_WH_SENSORS.urdf hrp2jsk.yaml)
+# endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
 
-# for HRP2W + multisense
-pkg_check_modules(multisense_description multisense_description QUIET)
-if(${hrp2_models_FOUND} AND multisense_description_FOUND)
-  # generate HRP2W_WH.urdf from HRP2W.urdf.xacro
-  set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
-  add_custom_command(OUTPUT ${_model_dir}/HRP2W_WH.urdf
-    COMMAND ${xacro_exe} ${_model_dir}/HRP2W.urdf.xacro -o ${_model_dir}/HRP2W_WH.urdf
-    DEPENDS ${_model_dir}/HRP2W.urdf.xacro ${_model_dir}/HRP2W.urdf)
-  # generate HRP2W_WH_SENSORS.urdf from HRP2W_WH.urdf and yaml
-  attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2W HRP2W_WH.urdf
-    HRP2W_WH_SENSORS.urdf hrp2w.yaml)
-endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
+# # for HRP2W + multisense
+# pkg_check_modules(multisense_description multisense_description QUIET)
+# if(${hrp2_models_FOUND} AND multisense_description_FOUND)
+#   # generate HRP2W_WH.urdf from HRP2W.urdf.xacro
+#   set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
+#   add_custom_command(OUTPUT ${_model_dir}/HRP2W_WH.urdf
+#     COMMAND ${xacro_exe} ${_model_dir}/HRP2W.urdf.xacro -o ${_model_dir}/HRP2W_WH.urdf
+#     DEPENDS ${_model_dir}/HRP2W.urdf.xacro ${_model_dir}/HRP2W.urdf)
+#   # generate HRP2W_WH_SENSORS.urdf from HRP2W_WH.urdf and yaml
+#   attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2W HRP2W_WH.urdf
+#     HRP2W_WH_SENSORS.urdf hrp2w.yaml)
+# endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
 
-# for HRP2G + multisense
-pkg_check_modules(multisense_description multisense_description QUIET)
-if(${hrp2_models_FOUND} AND multisense_description_FOUND)
-  # generate HRP2G_WH.urdf from HRP2G.urdf.xacro
-  set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
-  add_custom_command(OUTPUT ${_model_dir}/HRP2G_WH.urdf
-    COMMAND ${xacro_exe} ${_model_dir}/HRP2G.urdf.xacro -o ${_model_dir}/HRP2G_WH.urdf
-    DEPENDS ${_model_dir}/HRP2G.urdf.xacro ${_model_dir}/HRP2G.urdf)
-  # generate HRP2G_WH_SENSORS.urdf from HRP2G_WH.urdf and yaml
-  attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2G HRP2G_WH.urdf
-    HRP2G_WH_SENSORS.urdf hrp2g.yaml)
-endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
+# # for HRP2G + multisense
+# pkg_check_modules(multisense_description multisense_description QUIET)
+# if(${hrp2_models_FOUND} AND multisense_description_FOUND)
+#   # generate HRP2G_WH.urdf from HRP2G.urdf.xacro
+#   set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
+#   add_custom_command(OUTPUT ${_model_dir}/HRP2G_WH.urdf
+#     COMMAND ${xacro_exe} ${_model_dir}/HRP2G.urdf.xacro -o ${_model_dir}/HRP2G_WH.urdf
+#     DEPENDS ${_model_dir}/HRP2G.urdf.xacro ${_model_dir}/HRP2G.urdf)
+#   # generate HRP2G_WH_SENSORS.urdf from HRP2G_WH.urdf and yaml
+#   attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2G HRP2G_WH.urdf
+#     HRP2G_WH_SENSORS.urdf hrp2g.yaml)
+# endif(${hrp2_models_FOUND} AND multisense_description_FOUND)
 
-# for HRP2JSKNT, HRP2JSKNTS + multisense
-if(EXISTS ${hrp2_models_MODEL_DIR}/HRP3HAND_R/HRP3HAND_Rmain.wrl)
-  generate_hand_attached_hrp2_model(HRP2JSKNT)
-  generate_hand_attached_hrp2_model(HRP2JSKNTS)
-  run_xacro_for_hand_hrp2_model(HRP2JSKNT)
-  pkg_check_modules(multisense_description multisense_description QUIET)
-  if(multisense_description_FOUND)
-    run_xacro_for_hand_hrp2_model(HRP2JSKNTS)
-    attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSKNTS HRP2JSKNTS_WH.urdf
-      HRP2JSKNTS_WH_SENSORS.urdf hrp2jsknts.yaml)
-    attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSKNT HRP2JSKNT_WH.urdf
-      HRP2JSKNT_WH_SENSORS.urdf hrp2jsknt.yaml)
-  endif(multisense_description_FOUND)
-endif()
+# # for HRP2JSKNT, HRP2JSKNTS + multisense
+# if(EXISTS ${hrp2_models_MODEL_DIR}/HRP3HAND_R/HRP3HAND_Rmain.wrl)
+#   generate_hand_attached_hrp2_model(HRP2JSKNT)
+#   generate_hand_attached_hrp2_model(HRP2JSKNTS)
+#   run_xacro_for_hand_hrp2_model(HRP2JSKNT)
+#   pkg_check_modules(multisense_description multisense_description QUIET)
+#   if(multisense_description_FOUND)
+#     run_xacro_for_hand_hrp2_model(HRP2JSKNTS)
+#     attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSKNTS HRP2JSKNTS_WH.urdf
+#       HRP2JSKNTS_WH_SENSORS.urdf hrp2jsknts.yaml)
+#     attach_sensor_and_endeffector_to_hrp2jsk_urdf(HRP2JSKNT HRP2JSKNT_WH.urdf
+#       HRP2JSKNT_WH_SENSORS.urdf hrp2jsknt.yaml)
+#   endif(multisense_description_FOUND)
+# endif()
 
 macro (generate_staro_hand_model _robot_name _dir_name)
   set(_model_dir "${PROJECT_SOURCE_DIR}/models/")
@@ -675,43 +675,43 @@ if(EXISTS ${jsk_models_MODEL_DIR}/STARO/l_hand_attached_link.dae)
   endif()
 endif()
 
-if(EXISTS ${jsk_models_MODEL_DIR}/JAXON/l_hand_attached_link.dae)
-  find_package(PkgConfig)
-  find_package(multisense_description QUIET)
-  if(multisense_description_FOUND)
-    find_package(jaxon_description)
-    if(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
-      set(jaxon_description_SOURCE_DIR ${jaxon_description_SOURCE_PREFIX})
-    endif(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
-    find_package(jaxon_description)
-    if(EXISTS ${jaxon_description_SOURCE_DIR})
-      generate_staro_hand_model(JAXON JAXON)
-      generate_hand_attached_staro_model(JAXON)
-      run_xacro_for_hand_staro_model(JAXON)
-      attach_sensor_and_endeffector_to_staro_urdf(JAXON JAXON_WH.urdf JAXON_WH_SENSORS.urdf jaxon.yaml)
-    endif()
-  endif()
-endif()
+# if(EXISTS ${jsk_models_MODEL_DIR}/JAXON/l_hand_attached_link.dae)
+#   find_package(PkgConfig)
+#   find_package(multisense_description QUIET)
+#   if(multisense_description_FOUND)
+#     find_package(jaxon_description)
+#     if(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
+#       set(jaxon_description_SOURCE_DIR ${jaxon_description_SOURCE_PREFIX})
+#     endif(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
+#     find_package(jaxon_description)
+#     if(EXISTS ${jaxon_description_SOURCE_DIR})
+#       generate_staro_hand_model(JAXON JAXON)
+#       generate_hand_attached_staro_model(JAXON)
+#       run_xacro_for_hand_staro_model(JAXON)
+#       attach_sensor_and_endeffector_to_staro_urdf(JAXON JAXON_WH.urdf JAXON_WH_SENSORS.urdf jaxon.yaml)
+#     endif()
+#   endif()
+# endif()
 
-if("$ENV{TRAVIS_JOB_ID}" STREQUAL "")
-if(EXISTS ${jsk_models_MODEL_DIR}/JAXON_RED/l_hand_attached_link.dae)
-  find_package(PkgConfig)
-  find_package(multisense_description QUIET)
-  if(multisense_description_FOUND)
-    find_package(jaxon_description)
-    if(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
-      set(jaxon_description_SOURCE_DIR ${jaxon_description_SOURCE_PREFIX})
-    endif(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
-    find_package(jaxon_description)
-    if(EXISTS ${jaxon_description_SOURCE_DIR})
-      generate_staro_hand_model(JAXON_RED JAXON)
-      generate_hand_attached_staro_model(JAXON_RED)
-      run_xacro_for_hand_staro_model(JAXON_RED)
-      attach_sensor_and_endeffector_to_staro_urdf(JAXON_RED JAXON_RED_WH.urdf JAXON_RED_WH_SENSORS.urdf jaxon_red.yaml)
-    endif()
-  endif()
-endif()
-endif()
+# if("$ENV{TRAVIS_JOB_ID}" STREQUAL "")
+# if(EXISTS ${jsk_models_MODEL_DIR}/JAXON_RED/l_hand_attached_link.dae)
+#   find_package(PkgConfig)
+#   find_package(multisense_description QUIET)
+#   if(multisense_description_FOUND)
+#     find_package(jaxon_description)
+#     if(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
+#       set(jaxon_description_SOURCE_DIR ${jaxon_description_SOURCE_PREFIX})
+#     endif(NOT jaxon_description_SOURCE_DIR AND jaxon_description_SOURCE_PREFIX)
+#     find_package(jaxon_description)
+#     if(EXISTS ${jaxon_description_SOURCE_DIR})
+#       generate_staro_hand_model(JAXON_RED JAXON)
+#       generate_hand_attached_staro_model(JAXON_RED)
+#       run_xacro_for_hand_staro_model(JAXON_RED)
+#       attach_sensor_and_endeffector_to_staro_urdf(JAXON_RED JAXON_RED_WH.urdf JAXON_RED_WH_SENSORS.urdf jaxon_red.yaml)
+#     endif()
+#   endif()
+# endif()
+# endif()
 
 if(${jsk_models_FOUND})
   attach_sensor_and_endeffector_to_staro_urdf(CHIDORI CHIDORI.urdf CHIDORI_SENSORS.urdf chidori.yaml)
